@@ -2,21 +2,120 @@
   padding: 0;
   margin: 0;
 }
+body {
+  background-color: #a4b0c0;
+}
+
+$reel-width: 80%;
+$reel-height: 95%;
+$reel-bgc: #ffffff;
+$m-c: 0 auto;
+$reelLi: none;
 
 .slot {
   position: relative;
+  text-align: center;
   &_content {
-    background-image: url(/img/backGroundImg@2x.png);
+    background-image: url("/img/backGroundImg@2x.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: left top;
     height: 100%;
-    background-color: #a4b0c0;
     &_chance img {
-      width: 30vw;
+      width: 25vw;
     }
     &_luckeyNumber img {
-      width: 50vw;
+      width: 40vw;
+      margin-top: -2vw;
+    }
+    &_reel {
+      height: 45%;
+      width: 60%;
+      margin: $m-c;
+      border: 10px solid #feef02;
+      border-radius: 12px;
+      background-color: #000000;
+      margin-top: -1.5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      &_left,
+      &_center,
+      &_right {
+        width: $reel-width;
+        height: $reel-height;
+        background-color: $reel-bgc;
+        margin: auto;
+        height: 100%;
+        ul {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          row-gap: 5vh;
+          align-items: center;
+          list-style: $reelLi;
+        }
+      }
+    }
+    &_ramp {
+      position: absolute;
+      background-color: rgb(0, 0, 0);
+      border: 8px solid red;
+      border-radius: 12px;
+      height: 17%;
+      width: 10%;
+      left: 4vw;
+      bottom: 14vw;
+      img {
+        width: 90%;
+        height: auto;
+        position: absolute;
+        top: 6%;
+        left: 5%;
+      }
+    }
+    &_credit {
+      margin: 0 auto;
+      border: 4px solid red;
+      background-color: #000000;
+      width: 3%;
+      height: 3%;
+    }
+    &_btns {
+      position: relative;
+      &_lever {
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+        background-color: #000000;
+        position: absolute;
+        top: 1.5vw;
+        left: 5%;
+      }
+      &_cover {
+        background-image: url("/img/pushBtnCover.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        height: 12vw;
+        width: 70vw;
+        margin: -0.3vw auto 0;
+        display: flex;
+        justify-content: space-around;
+        div {
+          width: 8vw;
+          height: 8vw;
+          background-color: red;
+          border: 5px solid #a4b0c0;
+          border-radius: 50%;
+          margin-top: 1.5vw;
+          transition: all 0.5s;
+        }
+        div:hover {
+          background-color: blue;
+          transition: all 0.5s;
+        }
+      }
     }
   }
 }
